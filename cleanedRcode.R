@@ -152,7 +152,7 @@ tail(high_prices,20) # View top 20 most cheap cars
 
 
 ### Removing unusual values####
-# Define lower and upper bounds using 1st and 99th percentiles
+# Define lower and upper bounds using 2nd and 98th percentiles
 lower_bound <- quantile(trainingSet$Price, 0.02)  # 2st percentile
 upper_bound <- quantile(trainingSet$Price, 0.98)  # 98th percentile
 
@@ -160,7 +160,7 @@ upper_bound <- quantile(trainingSet$Price, 0.98)  # 98th percentile
 cat("Lower Bound:", lower_bound, "\n")
 cat("Upper Bound:", upper_bound, "\n")
 
-# Remove extreme values outside the 1st and 99th percentiles
+# Remove extreme values outside the 2nd and 98th percentiles
 trainingSet<- trainingSet[trainingSet$Price >= lower_bound & trainingSet$Price <= upper_bound, ]
 
 
